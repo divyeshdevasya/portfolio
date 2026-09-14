@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Divyesh Shama — software engineering, telemetry systems, full-stack applications and applied ML research.">
+  <title>Divyesh Shama · Software Engineer</title>
+  <style>
+    :root{color-scheme:light;--ink:#142c35;--muted:#49606a;--paper:#f5f4ef;--line:#d5dedc;--accent:#146455}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 system-ui,sans-serif}
+    a{color:var(--accent);text-underline-offset:4px}a:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+    .wrap{max-width:1080px;margin:auto;padding:0 28px}nav{display:flex;justify-content:space-between;gap:20px;padding:27px 0;border-bottom:1px solid var(--line);font-size:14px}
+    .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+    header{padding:78px 0 55px;max-width:840px}h1{font-size:clamp(44px,8vw,82px);line-height:1.03;letter-spacing:-.055em;margin:18px 0 24px}h2{font-size:30px;line-height:1.2;letter-spacing:-.03em}h3{font-size:23px;line-height:1.3;margin:14px 0}
+    .lead{font-size:23px;line-height:1.5;max-width:760px}.muted,footer{color:var(--muted)}.tags{display:flex;flex-wrap:wrap;gap:8px;margin:25px 0}.tag{font-size:13px;border:1px solid var(--line);border-radius:30px;padding:5px 12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}article{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px}article:first-child{grid-column:1/-1;background:#e8f0eb}.detail{font-size:15px;color:var(--muted)}.flow{padding:18px 0;font-size:16px;font-weight:600;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    section{margin-bottom:55px}.about{max-width:780px;border-top:1px solid var(--line);padding-top:28px}footer{padding:24px 0 36px;border-top:1px solid var(--line);font-size:13px}
+    @media(max-width:650px){.grid{grid-template-columns:1fr}header{padding-top:48px}.lead{font-size:20px}article{padding:24px}nav{flex-wrap:wrap}}
+    @media print{body{background:white;font-size:11pt}.wrap{max-width:none;padding:0}header{padding:25px 0}h1{font-size:40pt}.lead{font-size:15pt}article{break-inside:avoid}nav{display:none}section{margin-bottom:25px}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <nav aria-label="Main navigation"><strong>DIVYESH SHAMA</strong><div><a href="#projects">Selected work</a> &nbsp; <a href="README.md">Written profile</a></div></nav>
+  <header>
+    <p class="eyebrow">Software engineer · Backend, full-stack & applied ML</p>
+    <h1>Connecting software,<br>systems, and data.</h1>
+    <p class="lead">I build applications that connect operational workflows, telemetry, and data analysis—with an interest in what makes the whole system work.</p>
+    <p class="muted">My project work spans device-data backends, booking applications, and master's research at TU Darmstadt into privacy-aware location-sequence prediction.</p>
+    <div class="tags" aria-label="Technical areas"><span class="tag">Backend systems</span><span class="tag">Full-stack applications</span><span class="tag">Telemetry</span><span class="tag">Sequence modeling</span></div>
+  </header>
+  <main>
+    <section id="projects" aria-labelledby="work-title">
+      <p class="eyebrow">Selected work</p><h2 id="work-title">Three perspectives on engineering.</h2>
+      <div class="grid">
+        <article><p class="eyebrow">01 / Backend · Personal reference project</p><h3>Distributed telemetry backend</h3><p>A simulated-device system exploring how readings move from concurrent ingestion to durable storage and a live dashboard.</p><p class="flow">Simulated devices → Go ingestion → Spring Boot API → PostgreSQL</p><p class="detail">Bounded queues, batching, retries, duplicate handling, and monitoring. The central trade-off: throughput, latency, and behavior when downstream services fail.</p><div class="tags"><span class="tag">Go</span><span class="tag">Java / Spring Boot</span><span class="tag">PostgreSQL</span></div></article>
+        <article><p class="eyebrow">02 / Applied ML · Master's research</p><h3>Delivery availability prediction</h3><p>Exploring next-zone prediction from home-relative movement sequences, comparing Markov, LSTM, and Transformer models.</p><p class="detail">Research emphasis: representation design, preprocessing, evaluation, and the trade-off between predictive utility and privacy. A research prototype; production impact and independently verified privacy guarantees are not claimed.</p><p class="detail"><em>Deep Spatio-Temporal Learning with Anonymity Guarantees</em><br>TU Darmstadt · Submitted June 2025</p></article>
+        <article><p class="eyebrow">03 / Full-stack · Demo application</p><h3>Motorhome booking platform</h3><p>A booking workflow with availability checks, quote calculation, SQLite persistence, and server-rendered pages.</p><p class="detail">Engineering emphasis: overlapping dates, booking states, turnaround time, and clear business rules. The portfolio version uses demo configuration.</p><div class="tags"><span class="tag">Node.js</span><span class="tag">SQLite</span><span class="tag">HTML / CSS</span></div></article>
+      </div>
+    </section>
+    <section class="about" aria-labelledby="approach-title"><p class="eyebrow">Approach</p><h2 id="approach-title">Start with the workflow. Follow the data.</h2><p>I focus on clear interfaces, maintainable business rules, and understanding failure behavior. Across application engineering and ML, I am interested in the decisions around the core implementation: what the inputs mean, where assumptions can fail, and how to evaluate the result.</p><p class="detail">Additional project: ApplyKit, a Python toolkit for reusable application workflows with personal documents kept in a local workspace.</p></section>
+  </main>
+  <footer>Divyesh Shama · Selected engineering projects</footer>
+</div>
+</body>
+</html>
