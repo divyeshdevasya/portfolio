@@ -2,7 +2,7 @@
 
 **Backend systems, full-stack applications and applied ML.**
 
-Eight case studies explaining the problems, project scope, engineering decisions and limitations behind my work. Implementation source and project data remain private.
+Ten case studies explaining the problems, project scope, engineering decisions and limitations behind my work. Implementation source and project data remain private.
 
 [Open the visual portfolio](https://divyeshdevasya.github.io/portfolio/) | [About me](https://github.com/divyeshdevasya)
 
@@ -101,6 +101,30 @@ Diagnosing communication and observability problems in a charging-system context
 Telemetry / Connectivity / PLC-HMI context
 
 [Read the case study](projects/charging.md)
+
+## [Agent Identity Infrastructure](projects/agent-identity.md)
+
+**Backend engineering / Reference implementation**
+
+Treating an AI agent as an accountable actor while keeping a human or legal entity as the contractual principal.
+
+![Conceptual workflow](assets/agent-identity.svg)
+
+TypeScript / Fastify / PostgreSQL / Redis / Ed25519 signatures / JWT
+
+[Read the case study](projects/agent-identity.md)
+
+## [Multi-Agent Coder](projects/multi-agent-coder.md)
+
+**Applied ML / Tooling experiment**
+
+A small harness that runs planner, builder and reviewer LLM roles in one coding pipeline with real test feedback.
+
+![Conceptual workflow](assets/multi-agent-coder.svg)
+
+Python / Multi-provider LLM orchestration / Automated test execution
+
+[Read the case study](projects/multi-agent-coder.md)
 
 ---
 
