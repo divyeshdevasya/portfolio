@@ -4,7 +4,7 @@
 
 [Explore the visual portfolio](https://divyeshdevasya.github.io/portfolio/) · [GitHub profile](https://github.com/divyeshdevasya)
 
-Eleven case studies covering the problem, scope, engineering decisions, outcomes and limitations of each project.
+Twelve case studies covering the problem, scope, engineering decisions, outcomes and limitations of each project.
 
 ## Start here
 
@@ -17,6 +17,7 @@ Eleven case studies covering the problem, scope, engineering decisions, outcomes
 ## Applications and developer tools
 
 - [CANlens](projects/canlens.md) — CAN and CAN FD log analysis, DBC audit and DBC generation.
+- [Coldfit](projects/coldfit.md) — a refrigerated-vehicle configurator with live fit checks against load and rules.
 - [Barber Booking Experience](projects/barber-next.md) — Next.js, TypeScript and Prisma.
 - [Service Booking: Frontend to API](projects/barber-fullstack.md) — React, FastAPI and PostgreSQL.
 - [ApplyKit](projects/applykit.md) — reusable Python application workflows.
