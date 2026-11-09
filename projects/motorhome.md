@@ -31,7 +31,7 @@ The application brings together server-rendered pages, quote calculation, availa
 
 ## Outcome
 
-A complete demonstration of a booking-oriented web application, including the logic behind the customer journey, an owner dashboard for managing reservations, the messaging and payment integrations a live deployment would need, and the calendar and security controls added since. 119 automated tests cover the booking flow, payment totals, calendar import, owner access and spam handling. No revenue or customer-adoption claim is made.
+A complete demonstration of a booking-oriented web application, including the logic behind the customer journey, an owner dashboard for managing reservations, the messaging and payment integrations a live deployment would need, and the calendar and security controls added since. 211 automated tests cover the booking flow, payment totals, calendar import, owner access and spam handling. No revenue or customer-adoption claim is made.
 
 ## Limits and context
 
