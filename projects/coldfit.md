@@ -14,9 +14,9 @@ Buyers of refrigerated vehicles usually pick a body size first and find out late
 
 ## Project scope
 
-A bilingual web configurator. The user states the load (pallets and payload), then chooses temperature class, body size, chassis, powertrain and equipment. A fit check updates live: pallet positions, a likely payload band, external width and height against legal limits, licence and tachograph notes, ATP class and chassis compatibility. Failed checks offer a one-click fix. The user can save and share a configuration, print a specification or send a quotation request; a token-protected page lists the requests.
+A bilingual web configurator. The user states the load (pallets and payload), then chooses temperature class, body size, chassis, powertrain and equipment. A fit check updates live: pallet positions, a likely payload band, external width and height against legal limits, licence and tachograph notes, ATP class and chassis compatibility. Failed checks offer a one-click fix. The user can save and share a configuration, print a specification or send a quotation request. A sales side turns any build into a priced, versioned offer that goes to the customer on a private link with a PDF, and tracks it to a decision.
 
-**Technical areas:** Next.js / React / TypeScript / Cloudflare D1 / Drizzle
+**Technical areas:** Next.js / React / TypeScript / Cloudflare D1 / Drizzle / PDF generation / Docker
 
 ## Engineering decisions
 
@@ -26,14 +26,18 @@ A bilingual web configurator. The user states the load (pallets and payload), th
 - Pack pallets with a two-block guillotine search and test it against hand-counted layouts and monotonicity.
 - Version the configuration schema and upgrade old saved links on read, so earlier shared configurations keep working.
 - Protect the quotation form with a hidden field, a timing check, per-address rate limiting on a salted hash that is cleared after 24 hours, explicit consent and no third-party scripts.
-- Disable the admin interface until a long secret is set, and compare it in constant time.
+- Disable the staff area until a long master secret is set, compare it in constant time, then add staff by single-use invitation links with hashed passwords, roles and server-side checks on every request.
+- Freeze an offer's prices when it is built, record every later edit as a new version with a field-level difference, and never alter a version the customer has already seen.
+- Keep a price list with a full change log, and list the open offers that a price change affects instead of silently changing them.
+- Track offer status automatically where the system can observe it (opened, accepted, change requested, expired) and by hand where it cannot, marking each step as one or the other.
+- Write the offer PDF with a small dependency-free generator, and keep email, CRM and assistant integrations as adapters that stay off until configured.
 
 ## Outcome
 
-A working application with 22 unit tests for the rules engine and schema, 74 API checks and a 27-check browser flow, verified in German and English from 360 to 1440 px. A hosted deployment has not been run.
+A working application with 32 unit tests, 164 API checks and two browser flows (47 checks), verified in German and English from 360 to 1440 px, started by one launcher on Windows, macOS and Linux. A hosted deployment, the Windows launcher on a clean machine and the live email, CRM and assistant connections have not been run.
 
 ## Limits and context
 
-The catalog is a planning model, not supplier data: chassis weight classes are rounded from public information and payload and dimensions are estimates. Nothing in it is an offer, an approval or a certification. The legal text describes what the application does and has not been reviewed by a lawyer. Implementation and any manufacturer reference remain private.
+The catalog and price structure are a planning model, not supplier data: chassis weight classes are rounded from public information and payload and dimensions are estimates. Nothing in it is an offer, an approval or a certification. The legal text describes what the application does and has not been reviewed by a lawyer. Implementation and any manufacturer reference remain private.
 
 [Back to portfolio](../README.md)
