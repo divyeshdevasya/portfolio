@@ -14,9 +14,9 @@ Buyers of refrigerated vehicles usually pick a body size first and find out late
 
 ## Project scope
 
-A bilingual web configurator. The user states the load (pallets and payload), then chooses temperature class, body size, chassis, powertrain and equipment. A fit check updates live: pallet positions, a likely payload band, external width and height against legal limits, licence and tachograph notes, ATP class and chassis compatibility. Failed checks offer a one-click fix. The user can save and share a configuration, print a specification or send a quotation request. A sales side turns any build into a priced, versioned offer that goes to the customer on a private link with a PDF, and tracks it to a decision.
+A bilingual web configurator. The user states the load (pallets and payload), then chooses temperature class, body size, chassis, powertrain and equipment. A fit check updates live: pallet positions, a likely payload band, external width and height against legal limits, licence and tachograph notes, ATP class and chassis compatibility. Failed checks offer a one-click fix. The user can save and share a configuration, print a specification or send a quotation request. A quotation request opens a private conversation between the customer and the sales team at once. A sales side turns the request into a priced, versioned offer on that same page, with a PDF, a live chat, changes the customer can make to the vehicle themselves, and payment requests, and tracks it to a decision.
 
-**Technical areas:** Next.js / React / TypeScript / Cloudflare D1 / Drizzle / PDF generation / Docker
+**Technical areas:** Next.js / React / TypeScript / Cloudflare D1 / Drizzle / PDF generation / Stripe / Docker
 
 ## Engineering decisions
 
@@ -30,11 +30,16 @@ A bilingual web configurator. The user states the load (pallets and payload), th
 - Freeze an offer's prices when it is built, record every later edit as a new version with a field-level difference, and never alter a version the customer has already seen.
 - Keep a price list with a full change log, and list the open offers that a price change affects instead of silently changing them.
 - Track offer status automatically where the system can observe it (opened, accepted, change requested, expired) and by hand where it cannot, marking each step as one or the other.
-- Write the offer PDF with a small dependency-free generator, and keep email, CRM and assistant integrations as adapters that stay off until configured.
+- Open a conversation the moment a request arrives: the sender is saved as a customer, any salesperson can pick it up, the first to act becomes its owner, and the later offer appears on the same private page.
+- Let the customer rebuild the vehicle in the full configurator. Before an offer exists the change is applied directly; after one was sent it becomes a proposal with its differences that staff apply as a new version or decline.
+- Refresh every open screen from a small change stamp polled every three seconds, so messages and status arrive almost at once without socket infrastructure, and never overwrite unsaved edits.
+- Mark a payment as paid only from a staff confirmation or from a provider notification whose signature, timestamp and exact amount all check out, and treat repeated notifications as harmless.
+- Write the offer PDF with a small dependency-free generator, and keep email, CRM, payment and assistant integrations as adapters that stay off until configured.
+- Ship the release pre-built and install only the runtime on the target machine, with file names and database paths kept short enough for Windows.
 
 ## Outcome
 
-A working application with 32 unit tests, 164 API checks and two browser flows (47 checks), verified in German and English from 360 to 1440 px, started by one launcher on Windows, macOS and Linux. A hosted deployment, the Windows launcher on a clean machine and the live email, CRM and assistant connections have not been run.
+A working application with 36 unit tests, 226 API checks and two browser flows (75 checks), verified in German and English from 360 to 1440 px, started by one launcher on Windows, macOS and Linux. A hosted deployment, a full run on a clean Windows machine and the live email, CRM, payment and assistant connections have not been run.
 
 ## Limits and context
 

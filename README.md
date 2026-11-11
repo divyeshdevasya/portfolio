@@ -17,7 +17,7 @@ Fourteen case studies covering the problem, scope, engineering decisions, outcom
 ## Applications and developer tools
 
 - [CANlens](projects/canlens.md) — CAN and CAN FD log analysis, DBC audit and DBC generation.
-- [Coldfit](projects/coldfit.md) — a refrigerated-vehicle configurator with live fit checks against load and rules, and a sales side for priced, versioned offers.
+- [Coldfit](projects/coldfit.md) — a refrigerated-vehicle configurator with live fit checks against load and rules, and a sales side with live customer conversations, versioned offers and payments.
 - [Partsline](projects/partsline.md) — a parts webshop with stock holds, owner portal and invoices.
 - [Stockline](projects/stockline.md) — live parts stock and enquiries, kept current from a spreadsheet.
 - [Barber Booking Experience](projects/barber-next.md) — Next.js, TypeScript and Prisma.
